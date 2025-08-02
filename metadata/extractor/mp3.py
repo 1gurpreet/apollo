@@ -1,10 +1,11 @@
-from metadata.extractor.extractor import MetadataExtractor
+from metadata.extractor.base import MetadataExtractor
+
 from mutagen import File
 
 
 class Mp3MetadataExtractor(MetadataExtractor):
-    def extract(self, file_path: str) -> dict:
-        '''
+    async def extract(self, file_path: str) -> dict:
+        """
         Extracts metadata from an MP3 file.
 
         Args:
@@ -12,7 +13,7 @@ class Mp3MetadataExtractor(MetadataExtractor):
 
         Returns:
             dict: A dictionary containing the metadata.
-        '''
+        """
         audio = File(file_path)
         for key, value in audio.items():
             print(key, value)

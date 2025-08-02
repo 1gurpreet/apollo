@@ -1,7 +1,8 @@
 
-from metadata.extractor.extractor import MetadataExtractor
+from metadata.extractor.base import MetadataExtractor
 
 
 class WavExtractor(MetadataExtractor):
-    def extract(self, file_path: str) -> dict:
+    async def extract(self, file_path: str) -> dict:
+        #TODO: Implement WAV extractor
         pass

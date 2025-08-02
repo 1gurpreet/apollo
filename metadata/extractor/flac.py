@@ -1,10 +1,11 @@
-from metadata.extractor.extractor import MetadataExtractor
+from metadata.extractor.base import MetadataExtractor
+
 from mutagen import File
 
 
 class FlacExtractor(MetadataExtractor):
     def extract(self, file_path: str) -> dict:
-        '''
+        """
         Extracts metadata from an MP3 file.
 
         Args:
@@ -12,7 +13,7 @@ class FlacExtractor(MetadataExtractor):
 
         Returns:
             dict: A dictionary containing the metadata.
-        '''
+        """
         audio = File(file_path)
 
         metadata = {}
@@ -55,5 +56,5 @@ class FlacExtractor(MetadataExtractor):
             metadata["originalartist"] = audio["originalartist"][0]
         if "originalalbum" in audio.tags:
             metadata["originalalbum"] = audio["originalalbum"][0]
-
+         
         return metadata
